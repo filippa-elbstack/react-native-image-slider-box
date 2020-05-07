@@ -9,6 +9,7 @@ import {
 
 import Carousel, { Pagination } from "react-native-snap-carousel"; //Thank From distributer(s) of this lib
 import styles from "./SliderBox.style";
+import PropTypes from 'prop-types'
 
 // -------------------Props---------------------
 // images
@@ -58,6 +59,17 @@ export class SliderBox extends Component {
     });
   }
 
+  static propTypes = {
+    ImageComponent: PropTypes.any,
+    ImageComponentStyle : PropTypes.object,
+    sliderBoxHeight: PropTypes.number,
+    disableOnPress: PropTypes.bool,
+    resizeMethod: PropTypes.string,
+    resizeMode: PropTypes.string,
+    imageLoadingColor : PropTypes.string,
+    wrapperStyles: PropTypes.object
+  };
+
   _renderItem({ item, index }) {
     const {
       ImageComponent,
@@ -66,14 +78,18 @@ export class SliderBox extends Component {
       disableOnPress,
       resizeMethod,
       resizeMode,
-      imageLoadingColor = "#E91E63"
+      imageLoadingColor = "#E91E63",
+      wrapperStyles
     } = this.props;
     return (
       <View
-        style={{
-          position: "relative",
-          justifyContent: "center"
-        }}
+        style={[
+          {
+            position: "relative",
+            justifyContent: "center"
+          },
+          wrapperStyles
+        ]}
       >
         <TouchableHighlight
           key={index}

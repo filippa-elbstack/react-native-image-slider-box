@@ -38,6 +38,7 @@
     "metro-react-native-babel-preset": "*"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react-native-snap-carousel": "*"
   }
 }
